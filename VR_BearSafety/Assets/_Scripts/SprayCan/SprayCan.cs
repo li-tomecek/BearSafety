@@ -7,8 +7,16 @@ public class SprayCan : GrabInteractable
     [SerializeField] private float _acceptanceAngle;
     [SerializeField] private Transform _sprayOrigin;
     [SerializeField] ParticleSystem _sprayFX;
+    [SerializeField] Outline _hoverOutline;
 
     private bool _isHeld;
+
+    protected override void Start()
+    {
+        base.Start();
+        _sprayFX?.Stop();
+        _hoverOutline.enabled = false;
+    }
 
     public float GetAccuracy(Transform target)
     {
@@ -51,17 +59,18 @@ public class SprayCan : GrabInteractable
 
     protected override void OnDeactivate(DeactivateEventArgs arg0)
     {
-        
+        _sprayFX?.Stop();
     }
 
     protected override void OnHoverStart(HoverEnterEventArgs arg0)
     {
-        //highlight?
+        if(!_isHeld)
+            _hoverOutline.enabled = true;
     }
     
     protected override void OnHoverEnd(HoverExitEventArgs arg0)
     {
-        //end highlight
+        _hoverOutline.enabled = false;
     }
     #endregion
 
