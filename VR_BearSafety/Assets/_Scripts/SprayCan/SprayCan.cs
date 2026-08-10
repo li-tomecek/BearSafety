@@ -87,6 +87,7 @@ public class SprayCan : GrabInteractable
     {
         //check for anchors?
         _isHeld = false;
+        OnDeactivate(null);
     }
 
     protected override void OnActivate(ActivateEventArgs arg0)
@@ -116,6 +117,8 @@ public class SprayCan : GrabInteractable
     #region Accessors / Mutators
     public bool IsHeld => _isHeld;
     public bool IsSpraying => _sprayFX.isPlaying;
+    public float RemainingSprayTime => _remainingSeconds;
+    public float RemainingSprayPercent => _remainingSeconds / _totalSprayDuration;
     #endregion
 
 }
