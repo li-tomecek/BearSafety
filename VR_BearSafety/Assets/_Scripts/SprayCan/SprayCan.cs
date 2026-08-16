@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class SprayCan : GrabInteractable
 {
+    private static SprayCan Instance;
+    
     [Header("Visual Config")] [SerializeField]
     private float _sprayRange;
     [SerializeField] private Transform _sprayOrigin;
@@ -67,6 +69,18 @@ public class SprayCan : GrabInteractable
     }
     
     #region Start & Update
+    public void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+        
+    }
 
     protected override void Start()
     {
