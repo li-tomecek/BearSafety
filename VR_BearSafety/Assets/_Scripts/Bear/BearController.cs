@@ -98,16 +98,16 @@ public class BearController : MonoBehaviour
             return;
         }
 
-
         CanSeePlayer = CheckCanSeePlayer();
 
 
         if (IsPlayerWithinChargeRange() && HasPathToPlayer())
         {
-            if (_stateMachine.TryGetState(out BearAttackState attackState))
+            if (_stateMachine.TryGetState(out BearAttackState attackState) && _stateMachine.TryGetState(out BearRetreatState retreatState))
             {
-                if (_stateMachine.CurrentState != attackState)
-                    TransitionToChase();
+                if (_stateMachine.CurrentState != retreatState)
+                    if (_stateMachine.CurrentState != attackState)
+                        TransitionToChase();
             }
         }
 

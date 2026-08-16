@@ -132,7 +132,7 @@ public class SprayCan : GrabInteractable
     {
         if (_timeUntilSprayReload == -1.0f) return;
 
-        if (_isHeld)
+        if (_sprayFX.isPlaying)
         {
             _timeUntilLastSpray = 0.0f;
             return;
