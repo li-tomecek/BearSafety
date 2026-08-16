@@ -38,6 +38,9 @@ public class SprayCan : GrabInteractable
     [SerializeField] private InputActionReference _rightHandPress;
     [SerializeField] private InputActionReference _leftHandPress;
 
+    [SerializeField] private float _tutorialRequiredSprayTime = 4f;
+    private float _totalTimeHit;
+
     private enum Hand
     {
         None,
@@ -57,6 +60,7 @@ public class SprayCan : GrabInteractable
         _clipGameObject.transform.SetPositionAndRotation(_defaultClipPosition.position, _defaultClipPosition.rotation);
         _isHeld = false;
         _isUnclipped = false;
+        _totalTimeHit = 0;
 
         _hoverOutline.enabled = false;
         UpdateRemainingSprayTime(_totalSprayDuration);
@@ -117,7 +121,13 @@ public class SprayCan : GrabInteractable
                 if (target != null)
                 {
                     float accuracy = GetAccuracy(target.TargetTransform, target.AcceptedAngleDeviation);
-                    Debug.Log($"Spray Target Hit: {target.name} | Accuracy: {accuracy}");
+                    //Debug.Log($"Spray Target Hit: {target.name} | Accuracy: {accuracy}");
+                    if (accuracy > 0.0f)
+                    {
+                        _totalTimeHit += Time.deltaTime;
+                        if(_totalTimeHit >= _tutorialRequiredSprayTime)
+                                TutorialEvent.ReportAction(TutorialStep.BurstSpray);
+                    }
 
                     if (target.TryGetComponent(out BearController bear))
                     {
@@ -156,6 +166,7 @@ public class SprayCan : GrabInteractable
 
         _isHeld = true;
         CheckWhichHand(arg0.interactorObject);
+        TutorialEvent.ReportAction(TutorialStep.GrabCan);
     }
 
     protected override void OnDrop(SelectExitEventArgs arg0)
@@ -207,7 +218,7 @@ public class SprayCan : GrabInteractable
         if(acceptanceAngle < 0) acceptanceAngle = _defaultAcceptanceAngle;
         
         if(angle > acceptanceAngle) return 0;
-
+        
         return 1 - (angle/acceptanceAngle);
 
     }
@@ -259,11 +270,13 @@ public class SprayCan : GrabInteractable
     public void Unclip()
     {
         Debug.Log("[SprayCan] Unclipping trigger.");
-        _clipGameObject.transform.DOMove(_clipTargetPosition.position, 2f)
+        _clipGameObject.transform.DOMove(_clipTargetPosition.position, 0.7f)
             .OnComplete(() => { 
                 _isUnclipped = true; 
                 _clipGameObject.SetActive(false);
             });
+        
+        TutorialEvent.ReportAction(TutorialStep.Unclip);
     }
 
     private void UpdateRemainingSprayTime(float newAmount)

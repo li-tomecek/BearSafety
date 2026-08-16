@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85ee28e4018ba2d4f96dec74f1af3a1e, type: 3}
+  m_Name: Popup3_Handling
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialPopup
+  TutorialPages:
+  - If a bear is approaching, you should  <color=#cc5200>start spraying</color>when
+    it comes within 9-12m (30-40ft) of your position.\n\n This is <color=#cc5200>
+    about the length of a bus</color>
+  - Spray canisters hold limited supply! They will usually hold about 7-9 seconds
+    worth of spray.
+  - Unless a bear is charging, use <color=#cc5200>1-2 second bursts</color> to conserve
+    supply. \nTry spraying the target.
+  - Finally, ensure there are <color=#cc5200> no strong winds blowing towards your
+    face</color>. You do not want to spray yourself instead of the bear!
+  Step: 3
