@@ -983,7 +983,16 @@
                     "id": "555e8b73-9804-4c2f-9612-06c9de35f862",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "Hold(duration=0.2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PressMenu",
+                    "type": "Button",
+                    "id": "0a46be9e-3f60-4927-a269-2c400b3a6ce9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -1315,6 +1324,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressTop_Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0d49226c-2742-414f-bda0-9304c910a10e",
+                    "path": "*/{MenuButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
