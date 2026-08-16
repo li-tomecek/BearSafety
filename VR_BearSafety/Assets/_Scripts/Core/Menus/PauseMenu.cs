@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 
 [DefaultExecutionOrder(-50)]
@@ -19,6 +20,7 @@ public class PauseMenu : Menu<PauseMenu>
     [SerializeField] private Button openSettingsMenu;
     [SerializeField] private Button returnToMainMenu;
 
+    [SerializeField] private InputActionReference _menuButtonAction;
 
     protected override void Awake()
     {
@@ -29,6 +31,10 @@ public class PauseMenu : Menu<PauseMenu>
         resumeGame.onClick.AddListener(ResumeClicked);
         openSettingsMenu.onClick.AddListener(OpenSettingsMenu);
         returnToMainMenu.onClick.AddListener(ReturnToMainMenu);
+        _menuButtonAction.action.Enable();
+        _menuButtonAction.action.performed += (v) => FireOnPauseInputEvent();
+        
+        CloseMenu();
     }
 
     public void FireOnPauseInputEvent()
@@ -47,6 +53,7 @@ public class PauseMenu : Menu<PauseMenu>
 
     public override void OpenMenu()
     {
+        RecenterMenu();
         pauseMenu.SetActive(true);
     }
 
@@ -80,5 +87,12 @@ public class PauseMenu : Menu<PauseMenu>
         ClearConfirmationWindowSubscriptions();
 
         SceneService.Instance?.LoadScene("MainMenu");
+    }
+
+    protected override void OnDestroy()
+    {
+        _menuButtonAction.action.performed -= (v) => FireOnPauseInputEvent();
+        _menuButtonAction.action.Disable();
+        base.OnDestroy();
     }
 }

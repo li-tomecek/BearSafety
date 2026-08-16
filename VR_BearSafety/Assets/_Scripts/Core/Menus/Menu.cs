@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public abstract class Menu<T> : Singleton<T> where T : MonoBehaviour
 {
     [SerializeField] private AudioClip clickSFX;
+    [SerializeField] private Vector3 _offsetFromCamera = new Vector3(0.0f, 0.0f, -1.5f);
 
     private Button[] _menuButtons;
 
@@ -23,6 +24,11 @@ public abstract class Menu<T> : Singleton<T> where T : MonoBehaviour
     private void PlayClickSFX()
     {
         AudioManager.Instance?.PlaySound(clickSFX);
+    }
+    
+    protected void RecenterMenu()
+    {
+        gameObject.transform.position = Camera.main.transform.position + _offsetFromCamera;
     }
 
     public abstract void OpenMenu();

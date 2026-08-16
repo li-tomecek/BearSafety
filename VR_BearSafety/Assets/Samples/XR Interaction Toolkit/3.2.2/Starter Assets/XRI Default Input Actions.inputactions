@@ -1337,6 +1337,17 @@
                     "action": "PressMenu",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dd304c4f-eeb2-4b55-98de-d01c7379c60d",
+                    "path": "*/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

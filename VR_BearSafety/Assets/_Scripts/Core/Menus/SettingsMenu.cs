@@ -52,6 +52,8 @@ public class SettingsMenu : Menu<SettingsMenu>
         masterVolumeSlider.onValueChanged.AddListener((value) => UpdateVolume(value, AudioMixerKeys.MasterVolumeKey, ref _currentMasterVolume, ref masterVolumeText));
         musicVolumeSlider.onValueChanged.AddListener((value) => UpdateVolume(value, AudioMixerKeys.MusicVolumeKey, ref _currentMusicVolume, ref musicVolumeText));
         sfxVolumeSlider.onValueChanged.AddListener((value) => UpdateVolume(value, AudioMixerKeys.SFXVolumeKey, ref _currentSFXVolume, ref sfxVolumeText));
+        
+        CloseMenu();
     }
 
     private void Start()
@@ -62,11 +64,14 @@ public class SettingsMenu : Menu<SettingsMenu>
     private void OnEnable()
     {
         PauseMenu.Instance.OnPauseInputEvent += CloseMenu;
+        PauseMenu.Instance.OnPauseInputEvent += RecenterMenu;
+        
     }
 
     private void OnDisable()
     {
         PauseMenu.Instance.OnPauseInputEvent -= CloseMenu;
+        PauseMenu.Instance.OnPauseInputEvent -= RecenterMenu;
     }
 
     #region Save/Load
