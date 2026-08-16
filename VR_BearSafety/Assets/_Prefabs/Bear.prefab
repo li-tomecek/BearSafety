@@ -1513,6 +1513,7 @@ GameObject:
   - component: {fileID: 6898589260820645897}
   - component: {fileID: 4775716864809676981}
   - component: {fileID: 851789376417988067}
+  - component: {fileID: 6779082822461297129}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -1643,6 +1644,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6779082822461297129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9070514410326415597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98058d684a5f8b8418d2da355a5b6bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SprayTarget
+  _targetTransform: {fileID: 0}
+  _acceptedAngleDeviation: -1
 --- !u!1 &9161085794229948124
 GameObject:
   m_ObjectHideFlags: 0

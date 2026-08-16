@@ -9,6 +9,7 @@ public class BearController : MonoBehaviour
     [Header("Health")]
     [SerializeField] private float maxHealth = 300.0f;
     private float _currentHealth = 0.0f;
+    public float MaxHealth { get; private set; }
 
     [Header("SpawnMode")]
     [SerializeField] private BearSpawnMode spawnMode = BearSpawnMode.RandomAroundPlayer;
@@ -69,6 +70,8 @@ public class BearController : MonoBehaviour
 
     private void Awake()
     {
+        MaxHealth = maxHealth;
+
         _animator = GetComponent<Animator>();
 
         _agent = GetComponent<NavMeshAgent>();

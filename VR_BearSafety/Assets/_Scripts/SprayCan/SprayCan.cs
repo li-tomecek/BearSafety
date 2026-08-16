@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class SprayCan : GrabInteractable
 {
@@ -11,6 +12,7 @@ public class SprayCan : GrabInteractable
     [SerializeField] private Transform _sprayOrigin;
     [SerializeField] ParticleSystem _sprayFX;
     [SerializeField] Outline _hoverOutline;
+    [SerializeField] Image _sprayCapacity;
 
     [Header("Spray Config")] [SerializeField]
     private float _defaultAcceptanceAngle;
@@ -18,10 +20,19 @@ public class SprayCan : GrabInteractable
     [SerializeField] private LayerMask _sprayTargetLayerMask;
     //[SerializeField] private float _targetBurstDuration = 2;
 
+    [Header("Reload Config")]
+    [Tooltip("Set to -1 to NEVER have it reload")]
+    [SerializeField] private float _timeUntilSprayReload = 3.0f;
+    [SerializeField] private float _timeToReload = 3.0f;
+    private float _timeUntilLastSpray = 0.0f;
+
     [Header("Unclip Config")] 
     [SerializeField] private GameObject _clipGameObject;
     [SerializeField] private Transform _clipTargetPosition;
     private Transform _defaultClipPosition;
+
+    [Header("Bear Config")]
+    [SerializeField] private float _requiredHitDuration = 4.0f;
     
     [Header("Additional Input detection")]
     [SerializeField] private InputActionReference _rightHandPress;
@@ -48,7 +59,7 @@ public class SprayCan : GrabInteractable
         _isUnclipped = false;
 
         _hoverOutline.enabled = false;
-        _remainingSeconds = _totalSprayDuration;
+        UpdateRemainingSprayTime(_totalSprayDuration);
     }
     
     #region Start & Update
@@ -81,31 +92,61 @@ public class SprayCan : GrabInteractable
 
     void Update()
     {
-        if((_isHeld && _sprayFX.isPlaying) == false) return;
-    
-        _remainingSeconds -= Time.deltaTime;
-        if(_remainingSeconds <= 0)      //Check for remaining spray time
+        Spray();
+        ReloadSpray();
+    }
+
+    #region UpdateFunctions
+    private void Spray()
+    {
+        if ((_isHeld && _sprayFX.isPlaying) == false) return;
+
+        UpdateRemainingSprayTime(_remainingSeconds -= Time.deltaTime);
+        if (_remainingSeconds <= 0)      //Check for remaining spray time
         {
-            _remainingSeconds = 0;
             _sprayFX.Stop();
-        } 
+        }
         else                            //Check for spray targets (bear)
         {
             Ray ray = new Ray(_sprayOrigin.position, _sprayOrigin.forward);
-            
+
             Debug.DrawRay(ray.origin, ray.direction * _sprayRange, Color.red, 1f);
-            if (Physics.Raycast(ray, out RaycastHit hit, _sprayRange, _sprayTargetLayerMask)) 
+            if (Physics.Raycast(ray, out RaycastHit hit, _sprayRange, _sprayTargetLayerMask))
             {
                 SprayTarget target = hit.collider.GetComponentInParent<SprayTarget>();
-                if(target != null)
+                if (target != null)
                 {
                     float accuracy = GetAccuracy(target.TargetTransform, target.AcceptedAngleDeviation);
                     Debug.Log($"Spray Target Hit: {target.name} | Accuracy: {accuracy}");
+
+                    if (target.TryGetComponent(out BearController bear))
+                    {
+                        bear.TakeDamage((bear.MaxHealth / _requiredHitDuration) * Time.deltaTime);
+                    }
                 }
             }
         }
-
     }
+
+    private void ReloadSpray()
+    {
+        if (_timeUntilSprayReload == -1.0f) return;
+
+        if (_isHeld)
+        {
+            _timeUntilLastSpray = 0.0f;
+            return;
+        }
+
+        _timeUntilLastSpray += Time.deltaTime;
+
+        if (_timeUntilLastSpray < _timeUntilSprayReload) return;
+
+        float refillRate = _totalSprayDuration / _timeToReload;
+        UpdateRemainingSprayTime(_remainingSeconds + refillRate * Time.deltaTime);
+    }
+    #endregion
+
     #endregion
 
     #region Interactable Actions      
@@ -224,6 +265,16 @@ public class SprayCan : GrabInteractable
                 _clipGameObject.SetActive(false);
             });
     }
+
+    private void UpdateRemainingSprayTime(float newAmount)
+    {
+        _remainingSeconds = newAmount;
+
+        _remainingSeconds = Mathf.Clamp(_remainingSeconds, 0.0f, _totalSprayDuration);
+
+        _sprayCapacity.fillAmount = _remainingSeconds / _totalSprayDuration;
+    }
+
     #region Accessors / Mutators
     public bool IsHeld => _isHeld;
     public bool IsSpraying => _sprayFX.isPlaying;
