@@ -1597,8 +1597,8 @@ MonoBehaviour:
   maxHealth: 300
   spawnMode: 0
   playerRef: {fileID: 0}
-  minSpawnDistance: 1000
-  maxSpawnDistance: 2000
+  minSpawnDistance: 3000
+  maxSpawnDistance: 5000
   spawnPoints: []
   minIdleTime: 2
   maxIdleTime: 5
@@ -1606,12 +1606,12 @@ MonoBehaviour:
   walkDuration: 2.45
   chaseSpeed: 15
   chaseRange: 20
-  attackRange: 4
+  attackRange: 2
   stalkSpeed: 2
-  stalkingMinDistance: 400
-  stalkingMaxDistance: 1000
+  stalkingMinDistance: 300
+  stalkingMaxDistance: 300
   stalkingTargetInterval: 4.69
-  stalkingNavMeshSampleDistance: 250
+  stalkingNavMeshSampleDistance: 500
   fleeSpeed: 10
   fleeDistance: 2000
   fleeTargetInterval: 4.22
