@@ -1548,11 +1548,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 4
+  m_Speed: 4
+  m_Acceleration: 1000
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 5
+  m_AngularSpeed: 1000
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1603,17 +1603,17 @@ MonoBehaviour:
   spawnPoints: []
   minIdleTime: 2
   maxIdleTime: 5
-  walkSpeed: 2
+  walkSpeed: 1
   walkDuration: 2.45
-  chaseSpeed: 15
+  chaseSpeed: 5
   chaseRange: 20
-  attackRange: 2
-  stalkSpeed: 2
+  attackRange: 2.8
+  stalkSpeed: 1
   stalkingMinDistance: 300
   stalkingMaxDistance: 300
   stalkingTargetInterval: 4.69
   stalkingNavMeshSampleDistance: 500
-  fleeSpeed: 10
+  fleeSpeed: 5
   fleeDistance: 2000
   fleeTargetInterval: 4.22
   fleeRandomAngle: 45
