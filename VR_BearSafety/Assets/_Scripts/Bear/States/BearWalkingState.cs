@@ -9,7 +9,7 @@ public class BearWalkingState : BearMovementBaseState
     private float _walkDurationRemaining;
 
 
-    public BearWalkingState(Animator animator, BearController bearController, float walkDuration, CharacterController playerRef, NavMeshAgent bearAgent, float newAgentSpeed) : base(animator, playerRef, bearAgent, newAgentSpeed)
+    public BearWalkingState(Animator animator, BearController bearController, float walkDuration, Camera playerRef, NavMeshAgent bearAgent, float newAgentSpeed) : base(animator, playerRef, bearAgent, newAgentSpeed)
     {
         _bearController = bearController;
         _walkDuration = walkDuration;

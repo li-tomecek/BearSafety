@@ -9,7 +9,7 @@ public class BearChaseState : BearMovementBaseState
 
 
     public BearChaseState(Animator animator, BearController bearController, float attackRange,
-        CharacterController playerRef, NavMeshAgent bearAgent, float newAgentSpeed) : base(animator, playerRef, bearAgent, newAgentSpeed)
+        Camera playerRef, NavMeshAgent bearAgent, float newAgentSpeed) : base(animator, playerRef, bearAgent, newAgentSpeed)
     {
         _bearController = bearController;
         _attackRange = attackRange;

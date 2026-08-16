@@ -3,12 +3,12 @@ using UnityEngine.AI;
 
 public class BearMovementBaseState : BaseState
 {
-    protected CharacterController _playerRef;
+    protected Camera _playerRef;
     protected NavMeshAgent _bearAgent;
     protected float _agentSpeed;
 
 
-    public BearMovementBaseState(Animator animator, CharacterController playerRef, NavMeshAgent bearAgent, float newAgentSpeed) : base(animator)
+    public BearMovementBaseState(Animator animator, Camera playerRef, NavMeshAgent bearAgent, float newAgentSpeed) : base(animator)
     {
         _playerRef = playerRef;
         _bearAgent = bearAgent;

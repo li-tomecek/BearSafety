@@ -11,7 +11,7 @@ public class BearRetreatState : BearMovementBaseState
     private float _fleeNavMeshSampleDistance;
 
 
-    public BearRetreatState(Animator animator, CharacterController playerRef, NavMeshAgent bearAgent, float newAgentSpeed,
+    public BearRetreatState(Animator animator, Camera playerRef, NavMeshAgent bearAgent, float newAgentSpeed,
                 float fleeDistance, float fleeTargetInterval, float fleeRandomAngle, float fleeNavMeshSampleDistance
         ) : base(animator, playerRef, bearAgent, newAgentSpeed)
     {

@@ -16,7 +16,7 @@ public class BearStalkState : BearMovementBaseState
     private int _timesBeforeSwap;
 
 
-    public BearStalkState(Animator animator, BearController bearController, CharacterController playerRef, NavMeshAgent bearAgent, float newAgentSpeed,
+    public BearStalkState(Animator animator, BearController bearController, Camera playerRef, NavMeshAgent bearAgent, float newAgentSpeed,
                 float stalkingMinDistance, float stalkingMaxDistance, float stalkingTargetInterval, float stalkingNavMeshSampleDistance
         ) : base(animator, playerRef, bearAgent, newAgentSpeed)
     {

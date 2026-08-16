@@ -15,7 +15,7 @@ public class BearController : MonoBehaviour
     [SerializeField] private BearSpawnMode spawnMode = BearSpawnMode.RandomAroundPlayer;
 
     [Header("SpawnMode - RandomAroundPlayer")]
-    [SerializeField] private CharacterController playerRef;
+    [SerializeField] private Camera playerRef;
     [SerializeField] private float minSpawnDistance = 1000.0f;
     [SerializeField] private float maxSpawnDistance = 2000.0f;
 
@@ -110,6 +110,11 @@ public class BearController : MonoBehaviour
                         TransitionToChase();
             }
         }
+        else if (_stateMachine.TryGetState(out BearChaseState chaseState))
+        {
+            if (_stateMachine.CurrentState == chaseState)
+                TransitionToIdle();
+        }
 
 
         _stateMachine?.Update();
@@ -138,7 +143,6 @@ public class BearController : MonoBehaviour
     {
         Vector3 startPosition = transform.position + Vector3.up;
         Vector3 direction = playerRef.transform.position - startPosition;
-        direction.y += 1.0f;
         
         float distance = direction.magnitude;
 
