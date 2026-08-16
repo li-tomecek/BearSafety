@@ -101,7 +101,7 @@ public class SprayCan : GrabInteractable
     {
         if ((_isHeld && _sprayFX.isPlaying) == false) return;
 
-        UpdateRemainingSprayTime(_remainingSeconds -= Time.deltaTime);
+        UpdateRemainingSprayTime(_remainingSeconds - Time.deltaTime);
         if (_remainingSeconds <= 0)      //Check for remaining spray time
         {
             _sprayFX.Stop();
@@ -272,7 +272,7 @@ public class SprayCan : GrabInteractable
 
         _remainingSeconds = Mathf.Clamp(_remainingSeconds, 0.0f, _totalSprayDuration);
 
-        _sprayCapacity.fillAmount = _remainingSeconds / _totalSprayDuration;
+        _sprayCapacity.fillAmount = RemainingSprayPercent;
     }
 
     #region Accessors / Mutators
