@@ -2,26 +2,29 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
+using DG.Tweening;
 
 public class SprayCan : GrabInteractable
 {
     [Header("Visual Config")] [SerializeField]
     private float _sprayRange;
-
     [SerializeField] private Transform _sprayOrigin;
     [SerializeField] ParticleSystem _sprayFX;
     [SerializeField] Outline _hoverOutline;
 
     [Header("Spray Config")] [SerializeField]
     private float _defaultAcceptanceAngle;
-
     [SerializeField] private float _totalSprayDuration = 8; //typically canisters have 7-9 seconds of spray time
     [SerializeField] private LayerMask _sprayTargetLayerMask;
     //[SerializeField] private float _targetBurstDuration = 2;
 
-    [Header("Additional Input detection")] [SerializeField]
-    private InputActionReference _rightHandPress;
-
+    [Header("Unclip Config")] 
+    [SerializeField] private GameObject _clipGameObject;
+    [SerializeField] private Transform _clipTargetPosition;
+    private Transform _defaultClipPosition;
+    
+    [Header("Additional Input detection")]
+    [SerializeField] private InputActionReference _rightHandPress;
     [SerializeField] private InputActionReference _leftHandPress;
 
     private enum Hand
@@ -36,19 +39,34 @@ public class SprayCan : GrabInteractable
     private bool _isHeld, _isUnclipped;
     private float _remainingSeconds; //how much spray left in the can based on time.
 
+    public void Reset()
+    {
+        _sprayFX?.Stop();
+        _clipGameObject.SetActive(true);
+        _clipGameObject.transform.SetPositionAndRotation(_defaultClipPosition.position, _defaultClipPosition.rotation);
+        _isHeld = false;
+        _isUnclipped = false;
+
+        _hoverOutline.enabled = false;
+        _remainingSeconds = _totalSprayDuration;
+    }
+    
     #region Start & Update
 
     protected override void Start()
     {
         base.Start();
         _sprayFX?.Stop();
-        _hoverOutline.enabled = false;
-        _remainingSeconds = _totalSprayDuration;
-
+        
         _rightHandPress.action.Enable();
         _rightHandPress.action.performed += (v) => TryButton(Hand.Right);
         _leftHandPress.action.performed += (v) => TryButton(Hand.Left);
         
+        _rightHandPress.action.canceled += (v) => TryRelease(Hand.Right);
+        _leftHandPress.action.canceled += (v) => TryRelease(Hand.Left);
+
+        _defaultClipPosition = _clipGameObject.transform;
+        Reset();
     }
     protected override void OnDestroy()
     {
@@ -56,6 +74,9 @@ public class SprayCan : GrabInteractable
         _rightHandPress.action.Disable();
         _rightHandPress.action.performed -= (v) => TryButton(Hand.Right);
         _leftHandPress.action.performed -= (v) => TryButton(Hand.Left);
+        
+        _rightHandPress.action.canceled -= (v) => TryRelease(Hand.Right);
+        _leftHandPress.action.canceled -= (v) => TryRelease(Hand.Left);
     }
 
     void Update()
@@ -112,7 +133,8 @@ public class SprayCan : GrabInteractable
 
     protected override void OnDeactivate(DeactivateEventArgs arg0)
     {
-        _sprayFX?.Stop();
+        //_sprayFX?.Stop();
+        TryRelease(Hand.None);
     }
 
     protected override void OnHoverStart(HoverEnterEventArgs arg0)
@@ -172,10 +194,10 @@ public class SprayCan : GrabInteractable
     
     private void TryButton(Hand hand)
     {
-        if (_isHeld && _isUnclipped == false)
+        if (_isHeld && _isUnclipped == false && (hand == _heldHand) || (_heldHand == Hand.None))
         {
             //unclip
-            Debug.Log("[SprayCan] Unclipping trigger.");
+            Unclip();
         }
         
         else if (_isHeld && _isUnclipped && hand == _heldHand)
@@ -185,11 +207,23 @@ public class SprayCan : GrabInteractable
         }
     }
 
-    public void Unclip()
+    private void TryRelease(Hand hand)
     {
-        
+        if (hand == Hand.None || hand == _heldHand)
+        {
+            _sprayFX?.Stop();
+        }
     }
 
+    public void Unclip()
+    {
+        Debug.Log("[SprayCan] Unclipping trigger.");
+        _clipGameObject.transform.DOMove(_clipTargetPosition.position, 2f)
+            .OnComplete(() => { 
+                _isUnclipped = true; 
+                _clipGameObject.SetActive(false);
+            });
+    }
     #region Accessors / Mutators
     public bool IsHeld => _isHeld;
     public bool IsSpraying => _sprayFX.isPlaying;
