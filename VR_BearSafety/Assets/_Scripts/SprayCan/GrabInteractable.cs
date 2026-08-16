@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -18,7 +17,7 @@ public abstract class GrabInteractable : MonoBehaviour
         _xrGrabber = GetComponent<XRGrabInteractable>();
         
         //Note: can also do this manually in-editor
-        _xrGrabber.activated.AddListener(OnActivate);             
+        _xrGrabber.activated.AddListener(OnActivate);        
         _xrGrabber.deactivated.AddListener(OnDeactivate);
        
         _xrGrabber.selectEntered.AddListener(OnGrab);
