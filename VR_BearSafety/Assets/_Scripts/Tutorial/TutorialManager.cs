@@ -86,7 +86,8 @@ public class TutorialManager : MonoBehaviour
 
     public void RecenterPage()
     {
-        _tutorialGameObject.transform.position = Camera.main.transform.position + _offsetFromCamera;
+        var cam = Camera.main;
+        _tutorialGameObject.transform.position = cam.transform.position - cam.transform.forward + _offsetFromCamera;
     }
 }
 

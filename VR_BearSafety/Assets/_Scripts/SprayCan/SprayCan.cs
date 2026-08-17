@@ -12,7 +12,8 @@ public class SprayCan : GrabInteractable
     [Header("Visual Config")] [SerializeField]
     private float _sprayRange;
     [SerializeField] private Transform _sprayOrigin;
-    [SerializeField] ParticleSystem _sprayFX;
+    [SerializeField] ParticleSystem _sprayFX;   //pressurized steam effect
+    [SerializeField] ParticleSystem _trailFX;     //Burst where the spray actually hits the target (if hitting a target)
     [SerializeField] Outline _hoverOutline;
     [SerializeField] Image _sprayCapacity;
 
@@ -61,6 +62,7 @@ public class SprayCan : GrabInteractable
     public void Reset()
     {
         _sprayFX?.Stop();
+        _trailFX.Stop();
         _clipGameObject.SetActive(true);
         _clipGameObject.transform.SetPositionAndRotation(_defaultClipPosition.position, _defaultClipPosition.rotation);
         _isHeld = false;
@@ -88,6 +90,7 @@ public class SprayCan : GrabInteractable
     {
         base.Start();
         _sprayFX?.Stop();
+        _trailFX?.Stop();
         
         _rightHandPress.action.Enable();
         _rightHandPress.action.performed += (v) => TryButton(Hand.Right);
@@ -129,6 +132,7 @@ public class SprayCan : GrabInteractable
         {
             _audioSource.Stop();
             _sprayFX.Stop();
+            _trailFX.Stop();
         }
         else                            //Check for spray targets (bear)
         {
@@ -144,6 +148,9 @@ public class SprayCan : GrabInteractable
                 {
                     float accuracy = GetAccuracy(target.TargetTransform, target.AcceptedAngleDeviation);
                     //Debug.Log($"Spray Target Hit: {target.name} | Accuracy: {accuracy}");
+                    SetTrailPositionAndSize(
+                        Mathf.Min((target.TargetTransform.position - _sprayOrigin.position).magnitude, _sprayRange), 
+                        4f);
                     if (accuracy > 0.0f)
                     {
                         _totalTimeHit += Time.deltaTime;
@@ -156,6 +163,14 @@ public class SprayCan : GrabInteractable
                         bear.TakeDamage((bear.MaxHealth / _requiredHitDuration) * Time.deltaTime);
                     }
                 }
+                else
+                {
+                    SetTrailPositionAndSize(_sprayRange,1.7f);
+                }
+            }
+            else
+            {
+                SetTrailPositionAndSize(_sprayRange,1.7f);
             }
         }
     }
@@ -201,8 +216,11 @@ public class SprayCan : GrabInteractable
     protected override void OnActivate(ActivateEventArgs arg0)
     {
         //Particle Effects
-        if(_isUnclipped && _remainingSeconds > 0)
+        if (_isUnclipped && _remainingSeconds > 0)
+        {
             _sprayFX?.Play();
+            _trailFX?.Play();
+        }
     }
 
     protected override void OnDeactivate(DeactivateEventArgs arg0)
@@ -286,6 +304,7 @@ public class SprayCan : GrabInteractable
         if (hand == Hand.None || hand == _heldHand)
         {
             _sprayFX?.Stop();
+            _trailFX.Stop();
         }
     }
 
@@ -308,6 +327,15 @@ public class SprayCan : GrabInteractable
         _remainingSeconds = Mathf.Clamp(_remainingSeconds, 0.0f, _totalSprayDuration);
 
         _sprayCapacity.fillAmount = RemainingSprayPercent;
+    }
+
+    private void SetTrailPositionAndSize(float trailOffset, float size)
+    {
+        var main = _trailFX.main;
+        main.startSize = size;
+        
+        _trailFX.transform.position = _sprayOrigin.position + _sprayOrigin.forward * trailOffset;
+        
     }
 
     #region Accessors / Mutators
