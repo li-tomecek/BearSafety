@@ -4567,6 +4567,10 @@ PrefabInstance:
       propertyPath: _sprayCapacity
       value: 
       objectReference: {fileID: 2045517046}
+    - target: {fileID: 6661158493936727510, guid: 03c7be5447d024c439ad5772bebfafca, type: 3}
+      propertyPath: _timeUntilSprayReload
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8482733963287702697, guid: 03c7be5447d024c439ad5772bebfafca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 91.15

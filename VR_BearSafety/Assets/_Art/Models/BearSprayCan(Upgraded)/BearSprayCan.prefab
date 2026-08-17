@@ -4794,7 +4794,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: df0a9d4a1d2f26c4eb697a71ac5b82d6, type: 2}
+  - {fileID: 2100000, guid: 011bc24ee3a874d4cab24456f007e08e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9642,7 +9642,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: df0a9d4a1d2f26c4eb697a71ac5b82d6, type: 2}
+  - {fileID: 2100000, guid: 011bc24ee3a874d4cab24456f007e08e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15252,7 +15252,7 @@ MonoBehaviour:
   _sprayTargetLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  _timeUntilSprayReload: -1
+  _timeUntilSprayReload: 3
   _timeToReload: 3
   _clipGameObject: {fileID: 3171464309323203804}
   _clipTargetPosition: {fileID: 6720645325089820600}
