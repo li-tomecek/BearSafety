@@ -15,7 +15,7 @@ MonoBehaviour:
   TutorialPages:
   - If a bear is approaching, you should <color=#cc5200>start spraying</color> when
     it comes within 9-12m (30-40ft) of your position.\n\n This is <color=#cc5200>
-    about the length of a bus</color>
+    about the length of a bus</color>.
   - Spray canisters hold limited supply! They will usually hold about 7-9 seconds
     worth of spray.
   - Unless a bear is charging, use <color=#cc5200>1-2 second bursts</color> to conserve

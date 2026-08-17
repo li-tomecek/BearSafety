@@ -4502,6 +4502,10 @@ PrefabInstance:
       propertyPath: _offsetFromCamera.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 85091649900537534, guid: 26bca74db2f50914da73296eb5928e75, type: 3}
+      propertyPath: _charactersPerSecond
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1399890739368764567, guid: 26bca74db2f50914da73296eb5928e75, type: 3}
       propertyPath: m_LocalPosition.x
       value: 90.68868
