@@ -55,11 +55,17 @@ public class PauseMenu : Menu<PauseMenu>
     {
         RecenterMenu();
         pauseMenu.SetActive(true);
+
+        BearController bear = FindFirstObjectByType<BearController>();
+        if (bear != null) { bear.PauseBear(); }
     }
 
     public override void CloseMenu()
     {
         pauseMenu.SetActive(false);
+
+        BearController bear = FindFirstObjectByType<BearController>();
+        if (bear != null) { bear.UnPauseBear(); }
     }
 
     private void OpenSettingsMenu()
