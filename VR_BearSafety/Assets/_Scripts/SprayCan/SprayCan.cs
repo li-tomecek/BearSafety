@@ -89,32 +89,52 @@ public class SprayCan : GrabInteractable
     protected override void Start()
     {
         base.Start();
+
         _sprayFX?.Stop();
         _trailFX?.Stop();
-        
+
         _rightHandPress.action.Enable();
-        _rightHandPress.action.performed += (v) => TryButton(Hand.Right);
-        _leftHandPress.action.performed += (v) => TryButton(Hand.Left);
-        
-        _rightHandPress.action.canceled += (v) => TryRelease(Hand.Right);
-        _leftHandPress.action.canceled += (v) => TryRelease(Hand.Left);
+        _leftHandPress.action.Enable();
+
+        _rightHandPress.action.performed += OnRightHandPressed;
+        _leftHandPress.action.performed += OnLeftHandPressed;
+
+        _rightHandPress.action.canceled += OnRightHandReleased;
+        _leftHandPress.action.canceled += OnLeftHandReleased;
 
         _defaultClipPosition = _clipGameObject.transform;
+
         Reset();
 
         _audioSource = GetComponent<AudioSource>();
     }
-
     protected override void OnDestroy()
     {
+        if (_rightHandPress != null)
+        {
+            _rightHandPress.action.performed -= OnRightHandPressed;
+            _rightHandPress.action.canceled -= OnRightHandReleased;
+            _rightHandPress.action.Disable();
+        }
+
+        if (_leftHandPress != null)
+        {
+            _leftHandPress.action.performed -= OnLeftHandPressed;
+            _leftHandPress.action.canceled -= OnLeftHandReleased;
+            _leftHandPress.action.Disable();
+        }
+
+        Instance = null;
+
         base.OnDestroy();
-        _rightHandPress.action.Disable();
-        _rightHandPress.action.performed -= (v) => TryButton(Hand.Right);
-        _leftHandPress.action.performed -= (v) => TryButton(Hand.Left);
-        
-        _rightHandPress.action.canceled -= (v) => TryRelease(Hand.Right);
-        _leftHandPress.action.canceled -= (v) => TryRelease(Hand.Left);
     }
+
+    private void OnRightHandPressed(InputAction.CallbackContext context) => TryButton(Hand.Right);
+    private void OnLeftHandPressed(InputAction.CallbackContext context) => TryButton(Hand.Left);
+    private void OnRightHandReleased(InputAction.CallbackContext context) => TryRelease(Hand.Right);
+    private void OnLeftHandReleased(InputAction.CallbackContext context) => TryRelease(Hand.Left);
+
+
 
     void Update()
     {

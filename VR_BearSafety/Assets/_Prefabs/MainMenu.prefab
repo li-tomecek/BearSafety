@@ -977,6 +977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc13b5a2d81f564785b45b92a4dd245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenu
+  isDontDestroyOnLoad: 0
   clickSFX: {fileID: 8300000, guid: 1c0414e2ca711ed44bf1981a9eba1975, type: 3}
   _offsetFromCamera: {x: 0, y: 0, z: -1.5}
   tutorialSceneName: BearTraining(LianaScene)

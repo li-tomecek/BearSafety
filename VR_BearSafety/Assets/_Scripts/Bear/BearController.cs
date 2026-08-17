@@ -231,6 +231,17 @@ public class BearController : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (_stateMachine.TryGetState(out BearAttackState attackState))
+            if (_stateMachine.CurrentState == attackState)
+            {
+                AnimatorStateInfo stateInfo = _animator.GetCurrentAnimatorStateInfo(0);
+
+                if (stateInfo.normalizedTime >= 0.225f)
+                {
+                    return;
+                }
+            }
+
         _currentHealth -= amount;
 
         if (_currentHealth <= 0.0f)

@@ -71,7 +71,14 @@ public class TutorialManager : MonoBehaviour
         {
             //Close the popup
             _buttonText.text = "Got it";
-            _nextButton.onClick.AddListener(() => _tutorialGameObject.SetActive(false));
+
+
+
+                                                                                                            // ADDITION
+            if (_currentStep == TutorialStep.None)
+                _nextButton.onClick.AddListener(() => SceneService.Instance.LoadScene("MainMenu"));
+            else
+                _nextButton.onClick.AddListener(() => _tutorialGameObject.SetActive(false));
         }
         else
         {
@@ -124,5 +131,6 @@ public enum TutorialStep
     None,
     GrabCan,
     Unclip, 
-    BurstSpray
+    BurstSpray,
+    BearSurvived
 }

@@ -10,6 +10,8 @@ public class BearRetreatState : BearMovementBaseState
     private float _fleeRandomAngle;
     private float _fleeNavMeshSampleDistance;
 
+    private float _youSurvivedMenuWait = 3.0f;
+
 
     public BearRetreatState(Animator animator, Camera playerRef, NavMeshAgent bearAgent, float newAgentSpeed,
                 float fleeDistance, float fleeTargetInterval, float fleeRandomAngle, float fleeNavMeshSampleDistance
@@ -44,6 +46,14 @@ public class BearRetreatState : BearMovementBaseState
             {
                 _bearAgent.SetDestination(target);
             }
+        }
+
+        _youSurvivedMenuWait -= Time.deltaTime;
+
+        if (_youSurvivedMenuWait <= 0.0f && _youSurvivedMenuWait >= -10.0f)
+        {
+            TutorialEvent.ReportAction(TutorialStep.BearSurvived);
+            _youSurvivedMenuWait = -1000.0f;
         }
     }
 
