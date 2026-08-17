@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -42,7 +43,17 @@ public class MainMenu : Menu<MainMenu>
         SceneService.Instance?.LoadScene(tutorialSceneName);
     }
 
+    private void StartTutorial(InputAction.CallbackContext context)
+    {
+        SceneService.Instance?.LoadScene(tutorialSceneName);
+    }
+
     private void StartPractice()
+    {
+        SceneService.Instance?.LoadScene(practiceSceneName);
+    }
+
+    private void StartPractice(InputAction.CallbackContext context)
     {
         SceneService.Instance?.LoadScene(practiceSceneName);
     }
@@ -61,19 +72,21 @@ public class MainMenu : Menu<MainMenu>
     public void OnEnable()
     {
         _tutorialStart.action.Enable();
-        _tutorialStart.action.performed += (n) => StartTutorial();
+        _tutorialStart.action.performed += StartTutorial;
 
         _practiceStart.action.Enable();
-        _practiceStart.action.performed += (n) => StartPractice();
+        _practiceStart.action.performed += StartPractice;
     }
 
     public void OnDisable ()
     {
-        _tutorialStart.action.Enable();
-        _tutorialStart.action.performed -= (n) => StartTutorial();
+        //
+        _tutorialStart.action.performed -= StartTutorial;
+        _tutorialStart.action.Disable();
 
-        _practiceStart.action.Enable();
-        _practiceStart.action.performed -= (n) => StartPractice();
+        //
+        _practiceStart.action.performed -= StartPractice;
+        _practiceStart.action.Disable();
     }
 
     public override void OpenMenu()

@@ -14895,7 +14895,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Stack_1_ThrowForEmptyStack_m9E1A20F91E35
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 75679
+// Method Definition Index: 75677
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* StateMachine_1_get_CurrentState_m29A60631DEDF568232C1B17B928F0179599181BB_gshared (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14904,7 +14904,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* StateMachine_1_get_CurrentStat
 		return L_0;
 	}
 }
-// Method Definition Index: 75680
+// Method Definition Index: 75678
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_set_CurrentState_m82A3B224D6B43D55E4EA58D1C8D4930B9A3A6025_gshared (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, RuntimeObject* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -14915,7 +14915,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_set_CurrentState_m82A3B22
 		return;
 	}
 }
-// Method Definition Index: 75681
+// Method Definition Index: 75679
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* StateMachine_1_get_PreviousState_m17DE36DFC8CDD57BDB1C51F3256BBC3F20CAC892_gshared (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -14924,7 +14924,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* StateMachine_1_get_PreviousSta
 		return L_0;
 	}
 }
-// Method Definition Index: 75682
+// Method Definition Index: 75680
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_set_PreviousState_mA354AA69A57050A5B19CE994401C9FC2EDE892AF_gshared (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, RuntimeObject* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -14935,7 +14935,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_set_PreviousState_mA354AA
 		return;
 	}
 }
-// Method Definition Index: 75683
+// Method Definition Index: 75681
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1__ctor_mC2FE4E08C6C4120955C15C8721BBCEFC82AC2B02_gshared (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, RuntimeObject* ___0_initialState, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -14985,7 +14985,7 @@ IL_0024:
 		return;
 	}
 }
-// Method Definition Index: 75684
+// Method Definition Index: 75682
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_AddState_m7539FFA6D8FE781172522FB5641CB48102FA4723_gshared (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, RuntimeObject* ___0_state, const RuntimeMethod* method) 
 {
 	Type_t* V_0 = NULL;
@@ -15047,7 +15047,7 @@ IL_004a:
 		return;
 	}
 }
-// Method Definition Index: 75686
+// Method Definition Index: 75684
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_ReturnToPreviousState_mECB9C635E8AE4E37ADEF9183E6EF5BC81B3AFB26_gshared (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -15150,7 +15150,7 @@ IL_0042:
 		return;
 	}
 }
-// Method Definition Index: 75688
+// Method Definition Index: 75686
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_Update_mA6B7EBF28175A1F0D6641777E3C1B8E8E494511C_gshared (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -15187,7 +15187,7 @@ IL_0018:
 		return;
 	}
 }
-// Method Definition Index: 75689
+// Method Definition Index: 75687
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_FixedUpdate_mD95F5A495B807518030E6A42DC1C629F3D2015EF_gshared (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -15232,7 +15232,7 @@ IL_0018:
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 75679
+// Method Definition Index: 75677
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_get_CurrentState_mFBA0D4E30789A9611DE4AED9F2F4F3F335229F15_gshared (StateMachine_1_t5DD18CE8404A6B431F6AD1C593597ACB167F0F5B* __this, Il2CppFullySharedGenericAny* il2cppRetVal, const RuntimeMethod* method) 
 {
 	const uint32_t SizeOf_T_tB42E9ECC9E2F3D9E3BE9DB32AF27744CE9777414 = il2cpp_codegen_sizeof(il2cpp_rgctx_data_no_init(method->klass->rgctx_data, 1));
@@ -15244,7 +15244,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_get_CurrentState_mFBA0D4E
 		return;
 	}
 }
-// Method Definition Index: 75680
+// Method Definition Index: 75678
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_set_CurrentState_mD554DB4410BBE0B7B259340E75CA2A7F2FFF654B_gshared (StateMachine_1_t5DD18CE8404A6B431F6AD1C593597ACB167F0F5B* __this, Il2CppFullySharedGenericAny ___0_value, const RuntimeMethod* method) 
 {
 	const uint32_t SizeOf_T_tB42E9ECC9E2F3D9E3BE9DB32AF27744CE9777414 = il2cpp_codegen_sizeof(il2cpp_rgctx_data_no_init(method->klass->rgctx_data, 1));
@@ -15256,7 +15256,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_set_CurrentState_mD554DB4
 		return;
 	}
 }
-// Method Definition Index: 75681
+// Method Definition Index: 75679
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_get_PreviousState_mB43756B7B09E3036DE62AF88313E88B197C0B4DE_gshared (StateMachine_1_t5DD18CE8404A6B431F6AD1C593597ACB167F0F5B* __this, Il2CppFullySharedGenericAny* il2cppRetVal, const RuntimeMethod* method) 
 {
 	const uint32_t SizeOf_T_tB42E9ECC9E2F3D9E3BE9DB32AF27744CE9777414 = il2cpp_codegen_sizeof(il2cpp_rgctx_data_no_init(method->klass->rgctx_data, 1));
@@ -15268,7 +15268,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_get_PreviousState_mB43756
 		return;
 	}
 }
-// Method Definition Index: 75682
+// Method Definition Index: 75680
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_set_PreviousState_m4B86F4EA1419D8DC41FFA254E4F1DE848AB285A8_gshared (StateMachine_1_t5DD18CE8404A6B431F6AD1C593597ACB167F0F5B* __this, Il2CppFullySharedGenericAny ___0_value, const RuntimeMethod* method) 
 {
 	const uint32_t SizeOf_T_tB42E9ECC9E2F3D9E3BE9DB32AF27744CE9777414 = il2cpp_codegen_sizeof(il2cpp_rgctx_data_no_init(method->klass->rgctx_data, 1));
@@ -15280,7 +15280,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_set_PreviousState_m4B86F4
 		return;
 	}
 }
-// Method Definition Index: 75683
+// Method Definition Index: 75681
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1__ctor_mFEE62167D709885B4BFC8E17271372CC923B1175_gshared (StateMachine_1_t5DD18CE8404A6B431F6AD1C593597ACB167F0F5B* __this, Il2CppFullySharedGenericAny ___0_initialState, const RuntimeMethod* method) 
 {
 	const uint32_t SizeOf_T_tB42E9ECC9E2F3D9E3BE9DB32AF27744CE9777414 = il2cpp_codegen_sizeof(il2cpp_rgctx_data_no_init(method->klass->rgctx_data, 1));
@@ -15329,7 +15329,7 @@ IL_0024:
 		return;
 	}
 }
-// Method Definition Index: 75684
+// Method Definition Index: 75682
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_AddState_mB0443B2173B101052F4E24456D7C775DFCA9B097_gshared (StateMachine_1_t5DD18CE8404A6B431F6AD1C593597ACB167F0F5B* __this, Il2CppFullySharedGenericAny ___0_state, const RuntimeMethod* method) 
 {
 	const uint32_t SizeOf_T_tB42E9ECC9E2F3D9E3BE9DB32AF27744CE9777414 = il2cpp_codegen_sizeof(il2cpp_rgctx_data_no_init(method->klass->rgctx_data, 1));
@@ -15395,7 +15395,7 @@ IL_004a:
 		return;
 	}
 }
-// Method Definition Index: 75686
+// Method Definition Index: 75684
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_ReturnToPreviousState_mDF0C08B3DCC304257CB656C62164D0AAFFCDAF3D_gshared (StateMachine_1_t5DD18CE8404A6B431F6AD1C593597ACB167F0F5B* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -15506,7 +15506,7 @@ IL_0042:
 		return;
 	}
 }
-// Method Definition Index: 75688
+// Method Definition Index: 75686
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_Update_mF233A3C283E070D58ED3384F87F26D43447C27EE_gshared (StateMachine_1_t5DD18CE8404A6B431F6AD1C593597ACB167F0F5B* __this, const RuntimeMethod* method) 
 {
 	const uint32_t SizeOf_T_tB42E9ECC9E2F3D9E3BE9DB32AF27744CE9777414 = il2cpp_codegen_sizeof(il2cpp_rgctx_data_no_init(method->klass->rgctx_data, 1));
@@ -15543,7 +15543,7 @@ IL_0018:
 		return;
 	}
 }
-// Method Definition Index: 75689
+// Method Definition Index: 75687
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StateMachine_1_FixedUpdate_mF5E1BF9341C024FC7B0DBBEE4EEA556BFD3FE119_gshared (StateMachine_1_t5DD18CE8404A6B431F6AD1C593597ACB167F0F5B* __this, const RuntimeMethod* method) 
 {
 	const uint32_t SizeOf_T_tB42E9ECC9E2F3D9E3BE9DB32AF27744CE9777414 = il2cpp_codegen_sizeof(il2cpp_rgctx_data_no_init(method->klass->rgctx_data, 1));
@@ -29955,7 +29955,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR ResolveContextU5BU5D_tA44F71F5EFF
 		return L_0;
 	}
 }
-// Method Definition Index: 75680
+// Method Definition Index: 75678
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void StateMachine_1_set_CurrentState_m82A3B224D6B43D55E4EA58D1C8D4930B9A3A6025_gshared_inline (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, RuntimeObject* ___0_value, const RuntimeMethod* method) 
 {
 	{
@@ -29966,7 +29966,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void StateMachine_1_set_CurrentSt
 		return;
 	}
 }
-// Method Definition Index: 75679
+// Method Definition Index: 75677
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* StateMachine_1_get_CurrentState_m29A60631DEDF568232C1B17B928F0179599181BB_gshared_inline (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29975,7 +29975,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* StateMachine_1_get
 		return L_0;
 	}
 }
-// Method Definition Index: 75681
+// Method Definition Index: 75679
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* StateMachine_1_get_PreviousState_m17DE36DFC8CDD57BDB1C51F3256BBC3F20CAC892_gshared_inline (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, const RuntimeMethod* method) 
 {
 	{
@@ -29984,7 +29984,7 @@ IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR RuntimeObject* StateMachine_1_get
 		return L_0;
 	}
 }
-// Method Definition Index: 75682
+// Method Definition Index: 75680
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void StateMachine_1_set_PreviousState_mA354AA69A57050A5B19CE994401C9FC2EDE892AF_gshared_inline (StateMachine_1_tD0BD0BFFE094232A5E06BCF6ACA91C6A02829DAE* __this, RuntimeObject* ___0_value, const RuntimeMethod* method) 
 {
 	{
