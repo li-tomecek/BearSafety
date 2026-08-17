@@ -13,11 +13,6 @@ public class BearController : MonoBehaviour
     [SerializeField] private float minIdleSFXPlayRate = 10.0f;
     [SerializeField] private float maxIdleSFXPlayRate = 30.0f;
 
-    [Header("Health")]
-    [SerializeField] private float maxHealth = 300.0f;
-    private float _currentHealth = 0.0f;
-    public float MaxHealth { get; private set; }
-
     [Header("SpawnMode")]
     [SerializeField] private BearSpawnMode spawnMode = BearSpawnMode.RandomAroundPlayer;
 
@@ -66,6 +61,10 @@ public class BearController : MonoBehaviour
     public bool CanSeePlayer { get; private set; } = false;
 
 
+    private float _currentHealth = 0.0f;
+    public float MaxHealth { get; private set; } = 100.0f;
+
+
     private Animator _animator;
 
     private NavMeshAgent _agent;
@@ -77,8 +76,6 @@ public class BearController : MonoBehaviour
 
     private void Awake()
     {
-        MaxHealth = maxHealth;
-
         _animator = GetComponent<Animator>();
 
         _agent = GetComponent<NavMeshAgent>();
@@ -115,26 +112,31 @@ public class BearController : MonoBehaviour
         CanSeePlayer = CheckCanSeePlayer();
 
 
-        if (IsPlayerWithinChargeRange() && HasPathToPlayer())
-        { 
-            if (_stateMachine.TryGetState(out BearAttackState attackState) && _stateMachine.TryGetState(out BearRetreatState retreatState))
-            {
-                if (_stateMachine.CurrentState != retreatState)
-                    if (_stateMachine.CurrentState != attackState)
-                    {
-                        if (_stateMachine.TryGetState(out BearChaseState chaseState))
-                            if (_stateMachine.CurrentState != chaseState)
-                            {
-                                TransitionToChase();
-                                GetComponent<AudioSource>().Play();
-                            }
-                    }
-            }
-        }
-        else if (_stateMachine.TryGetState(out BearChaseState chaseState))
+        if (_stateMachine.TryGetState(out BearRetreatState retreatState))
         {
-            if (_stateMachine.CurrentState == chaseState)
-                TransitionToIdle();
+            if (_stateMachine.CurrentState != retreatState)
+            {
+                if (IsPlayerWithinChargeRange() && HasPathToPlayer())
+                {
+                    if (_stateMachine.TryGetState(out BearAttackState attackState))
+                    {
+                        if (_stateMachine.CurrentState != attackState)
+                        {
+                            if (_stateMachine.TryGetState(out BearChaseState chaseState))
+                                if (_stateMachine.CurrentState != chaseState)
+                                {
+                                    TransitionToChase();
+                                    GetComponent<AudioSource>().Play();
+                                }
+                        }
+                    }
+                }
+                else if (_stateMachine.TryGetState(out BearChaseState chaseState))
+                {
+                    if (_stateMachine.CurrentState == chaseState)
+                        TransitionToIdle();
+                }
+            }
         }
 
 
@@ -185,7 +187,13 @@ public class BearController : MonoBehaviour
 
 
     public void PauseBear() { _isPaused = true; }
-    public void UnPauseBear() { _stateMachine.ReturnToPreviousState(); _isPaused = false; }
+    public void UnPauseBear() 
+    { 
+        if (_stateMachine == null) return; 
+        
+        _stateMachine.ReturnToPreviousState(); 
+        _isPaused = false; 
+    }
 
 
     public void Spawn()
@@ -214,7 +222,7 @@ public class BearController : MonoBehaviour
         transform.position = spawnPosition;
 
 
-        _currentHealth = maxHealth;
+        _currentHealth = MaxHealth;
 
 
         gameObject.SetActive(true);

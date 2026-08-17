@@ -17,15 +17,19 @@ public class AudioManager : Singleton<AudioManager>
     private List<SpatialAudioPlayer> _atLocationSources = new List<SpatialAudioPlayer>();
 
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
+
         _musicSource = gameObject.AddComponent<AudioSource>();
         _musicSource.outputAudioMixerGroup = musicMixer;
 
         _sfxSource = gameObject.AddComponent<AudioSource>();
         _sfxSource.outputAudioMixerGroup = sfxMixer;
+    }
 
-
+    private void Start()
+    {
         LoadVolume();
     }
 

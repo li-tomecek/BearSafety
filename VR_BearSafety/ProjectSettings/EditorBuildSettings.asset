@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/BearTraining.unity
-    guid: 25b662c38cc7fb34f8ce590ae1ee8511
+    path: Assets/Scenes/MainMenu.unity
+    guid: eaeed76e0fefaaa4493226eece4b4df3
+  - enabled: 1
+    path: Assets/Scenes/BearTraining(LianaScene).unity
+    guid: 2bbd62c01e3545f419df547e8aa50437
+  - enabled: 1
+    path: Assets/Scenes/BearTraining(LucScene).unity
+    guid: 3dbfa8efe7b4f264fa16c80704cab6ea
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 39c10609abf26af41afa7549d4518cfd, type: 2}

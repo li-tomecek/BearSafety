@@ -53,6 +53,8 @@ public class BearRetreatState : BearMovementBaseState
         result = Vector3.zero;
 
         Vector3 awayDirection = (_bearAgent.transform.position - _playerRef.transform.position).normalized;
+        awayDirection.y = 0f;
+        awayDirection.Normalize();
 
         for (int i = 0; i < 10; i++)
         {

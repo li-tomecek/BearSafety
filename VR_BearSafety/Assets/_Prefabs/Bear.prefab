@@ -1600,7 +1600,6 @@ MonoBehaviour:
   idleSFX: {fileID: 8300000, guid: 5cfa0cacc604582478c670f19cf25fab, type: 3}
   minIdleSFXPlayRate: 10
   maxIdleSFXPlayRate: 30
-  maxHealth: 300
   spawnMode: 0
   playerRef: {fileID: 0}
   minSpawnDistance: 3000
@@ -1609,8 +1608,8 @@ MonoBehaviour:
   minIdleTime: 2
   maxIdleTime: 5
   walkSpeed: 1
-  walkDuration: 2.45
-  chaseSpeed: 7
+  walkDuration: 5.35
+  chaseSpeed: 8
   chaseRange: 20
   attackRange: 2.8
   stalkSpeed: 1
@@ -1619,10 +1618,10 @@ MonoBehaviour:
   stalkingTargetInterval: 4.69
   stalkingNavMeshSampleDistance: 500
   fleeSpeed: 6
-  fleeDistance: 2000
+  fleeDistance: 250
   fleeTargetInterval: 4.22
   fleeRandomAngle: 45
-  fleeNavMeshSampleDistance: 10
+  fleeNavMeshSampleDistance: 250
   detectionRange: 50
   lineOfSightMask:
     serializedVersion: 2

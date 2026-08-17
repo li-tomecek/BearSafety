@@ -8,7 +8,7 @@ public class AudioSceneDefaultMusic : MonoBehaviour
     private void Start()
     {
         if (musicClip != null)
-            AudioManager.Instance?.PlayMusic(musicClip);
+            AudioManager.Instance.PlayMusic(musicClip);
         else
             Debug.LogError("Issue with AudioManager while trying to play AudioSceneDefaultMusic");
     }
