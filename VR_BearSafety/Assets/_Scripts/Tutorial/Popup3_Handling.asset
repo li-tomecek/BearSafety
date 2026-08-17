@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Popup3_Handling
   m_EditorClassIdentifier: Assembly-CSharp::TutorialPopup
   TutorialPages:
-  - If a bear is approaching, you should  <color=#cc5200>start spraying</color>when
+  - If a bear is approaching, you should <color=#cc5200>start spraying</color> when
     it comes within 9-12m (30-40ft) of your position.\n\n This is <color=#cc5200>
     about the length of a bus</color>
   - Spray canisters hold limited supply! They will usually hold about 7-9 seconds

@@ -28,7 +28,16 @@ public abstract class Menu<T> : Singleton<T> where T : MonoBehaviour
     
     protected void RecenterMenu()
     {
-        gameObject.transform.position = Camera.main.transform.position + _offsetFromCamera;
+        var cam = Camera.main;
+
+        Vector3 cameraForward = cam.transform.forward;
+        cameraForward.y = 0f;
+        cameraForward.Normalize();
+
+        gameObject.transform.position =
+            cam.transform.position + cameraForward * _offsetFromCamera.z;
+
+        gameObject.transform.rotation = Quaternion.LookRotation(cameraForward);
     }
 
     public abstract void OpenMenu();

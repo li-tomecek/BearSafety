@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private Button _nextButton;
     [SerializeField] private TextMeshProUGUI _buttonText;
     [SerializeField] private TextMeshProUGUI _textBox;
+    [SerializeField] private float _charactersPerSecond = 12f;
     [SerializeField] private Vector3 _offsetFromCamera = new();
     
     public void Start()
@@ -61,7 +63,8 @@ public class TutorialManager : MonoBehaviour
         
         _tutorialGameObject.SetActive(true);
 
-        _textBox.text = pageContents.Dequeue();
+        //_textBox.text = pageContents.Dequeue();
+        TypeText(pageContents.Dequeue());
         _nextButton.onClick.RemoveAllListeners();
 
         if (pageContents.Count <= 0)
@@ -87,7 +90,32 @@ public class TutorialManager : MonoBehaviour
     public void RecenterPage()
     {
         var cam = Camera.main;
-        _tutorialGameObject.transform.position = cam.transform.position - cam.transform.forward + _offsetFromCamera;
+
+        Vector3 cameraForward = cam.transform.forward;
+        cameraForward.y = 0f;
+        cameraForward.Normalize();
+
+        _tutorialGameObject.transform.position =
+            cam.transform.position + cameraForward * _offsetFromCamera.z;
+
+        _tutorialGameObject.transform.rotation = Quaternion.LookRotation(cameraForward);
+    }
+    
+    
+    public void TypeText(string message)
+    {
+        _textBox.DOKill();
+        _textBox.text = message;
+        _textBox.maxVisibleCharacters = 0;
+
+        float duration = message.Length / _charactersPerSecond;
+
+        DOTween.To(
+            () => _textBox.maxVisibleCharacters,
+            x => _textBox.maxVisibleCharacters = x,
+            message.Length,
+            duration
+        ).SetEase(Ease.Linear);
     }
 }
 

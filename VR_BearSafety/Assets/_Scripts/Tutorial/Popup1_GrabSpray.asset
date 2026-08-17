@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Popup1_GrabSpray
   m_EditorClassIdentifier: Assembly-CSharp::TutorialPopup
   TutorialPages:
-  - You should always carry your bear spray somewhere easily accessible. \n\n<color=#cc5200>Your
-    belt</color> is a good spot!
+  - You should always carry your bear spray somewhere easily accessible. \n\n<color=#cc5200>Pick
+    up the bear spray</color>.
   Step: 1
