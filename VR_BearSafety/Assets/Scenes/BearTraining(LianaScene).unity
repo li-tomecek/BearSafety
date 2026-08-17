@@ -564,7 +564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5890686453797547488, guid: 4a2f7f2cb2f4d064f9054611602a22c8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -636,6 +636,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 513228453120945271, guid: 03c7be5447d024c439ad5772bebfafca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3543901251190974962, guid: 03c7be5447d024c439ad5772bebfafca, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3964598689911018442, guid: 03c7be5447d024c439ad5772bebfafca, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229781619959066729, guid: 03c7be5447d024c439ad5772bebfafca, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 011bc24ee3a874d4cab24456f007e08e, type: 2}
     - target: {fileID: 6661158493936727510, guid: 03c7be5447d024c439ad5772bebfafca, type: 3}
       propertyPath: _sprayCapacity
       value: 
@@ -644,6 +660,10 @@ PrefabInstance:
       propertyPath: _timeUntilSprayReload
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7816245774738452857, guid: 03c7be5447d024c439ad5772bebfafca, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 011bc24ee3a874d4cab24456f007e08e, type: 2}
     - target: {fileID: 8482733963287702697, guid: 03c7be5447d024c439ad5772bebfafca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.71
