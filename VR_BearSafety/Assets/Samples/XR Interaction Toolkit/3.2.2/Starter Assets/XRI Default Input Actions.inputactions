@@ -994,6 +994,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenScene_Tut",
+                    "type": "Button",
+                    "id": "7e3f142f-a7cf-49a5-9f33-6de565d6b573",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1340,12 +1349,12 @@
                 },
                 {
                     "name": "",
-                    "id": "dd304c4f-eeb2-4b55-98de-d01c7379c60d",
-                    "path": "*/{SecondaryButton}",
+                    "id": "f29d8897-9171-474f-beef-7f7685c26fbe",
+                    "path": "<XRController>{LeftHand}/{SecondaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PressMenu",
+                    "action": "OpenScene_Tut",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -2140,6 +2149,15 @@
                     "processors": "",
                     "interactions": "Hold",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenScene_Practice",
+                    "type": "Button",
+                    "id": "1623c5ac-1f2e-42da-9807-0847fab5c974",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -2470,6 +2488,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PressTop_Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8f84ce64-ded7-49a5-9f2f-b06a949af976",
+                    "path": "<XRController>{RightHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenScene_Practice",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

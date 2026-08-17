@@ -1044,8 +1044,8 @@ MonoBehaviour:
   practiceButton: {fileID: 1303298166}
   settingsButton: {fileID: 193158172}
   quitButton: {fileID: 307408205}
-  _tutorialStart: {fileID: -1542118210108029133, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  _practiceStart: {fileID: 3449346011790836048, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _tutorialStart: {fileID: 7248891675706244040, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  _practiceStart: {fileID: -608299939959109922, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &890659608
 MonoBehaviour:
   m_ObjectHideFlags: 0
