@@ -15241,7 +15241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf1be9cf1773fb4b94511bddebddf1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SprayCan
-  _sprayRange: 9.5
+  _sprayRange: 11
   _sprayOrigin: {fileID: 7330572871714248518}
   _sprayFX: {fileID: 2095367478210968671}
   _trailFX: {fileID: 3543901251190974962}
@@ -15252,11 +15252,11 @@ MonoBehaviour:
   _sprayTargetLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  _timeUntilSprayReload: 3
+  _timeUntilSprayReload: -1
   _timeToReload: 3
   _clipGameObject: {fileID: 3171464309323203804}
   _clipTargetPosition: {fileID: 6720645325089820600}
-  _requiredHitDuration: 4
+  _requiredHitDuration: 1.5
   _rightHandPress: {fileID: -1542118210108029133, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _leftHandPress: {fileID: 3449346011790836048, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   _tutorialRequiredSprayTime: 4

@@ -219,7 +219,8 @@ public class BearController : MonoBehaviour
             spawnPosition = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
         }
 
-        transform.position = spawnPosition;
+
+        _agent.Warp(spawnPosition);
 
 
         _currentHealth = MaxHealth;
