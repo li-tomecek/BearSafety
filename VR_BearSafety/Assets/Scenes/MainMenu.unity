@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: '[GameInitializer]'
       objectReference: {fileID: 0}
+    - target: {fileID: 3674705894783820709, guid: 08b0a75a8a9c27d44978c12f0737138b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3806783335520856271, guid: 08b0a75a8a9c27d44978c12f0737138b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -623,6 +627,10 @@ PrefabInstance:
     - target: {fileID: 8353380236748082223, guid: 92928c3123f3e534db208efac8d16e27, type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8353380236748082223, guid: 92928c3123f3e534db208efac8d16e27, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8398204402294497207, guid: 92928c3123f3e534db208efac8d16e27, type: 3}
       propertyPath: m_AnchoredPosition.x
