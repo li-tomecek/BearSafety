@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 
@@ -16,6 +17,11 @@ public class MainMenu : Menu<MainMenu>
     [SerializeField] private Button quitButton;
 
 
+    [Header("HOTKEYS")]
+    [SerializeField] private InputActionReference _tutorialStart;
+    [SerializeField] private InputActionReference _practiceStart;
+
+
     protected override void Awake()
     {
         base.Awake();
@@ -27,7 +33,9 @@ public class MainMenu : Menu<MainMenu>
         practiceButton.onClick.AddListener(StartPractice);
         settingsButton.onClick.AddListener(OpenSettings);
         quitButton.onClick.AddListener(QuitGame);
+
     }
+
 
     private void StartTutorial()
     {
@@ -49,6 +57,24 @@ public class MainMenu : Menu<MainMenu>
         Application.Quit();
     }
 
+
+    public void OnEnable()
+    {
+        _tutorialStart.action.Enable();
+        _tutorialStart.action.performed += (n) => StartTutorial();
+
+        _practiceStart.action.Enable();
+        _practiceStart.action.performed += (n) => StartPractice();
+    }
+
+    public void OnDisable ()
+    {
+        _tutorialStart.action.Enable();
+        _tutorialStart.action.performed -= (n) => StartTutorial();
+
+        _practiceStart.action.Enable();
+        _practiceStart.action.performed -= (n) => StartPractice();
+    }
 
     public override void OpenMenu()
     {
