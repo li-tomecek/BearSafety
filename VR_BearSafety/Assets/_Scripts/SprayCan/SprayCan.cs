@@ -122,7 +122,7 @@ public class SprayCan : GrabInteractable
     #region UpdateFunctions
     private void Spray()
     {
-        if ((_isHeld && _sprayFX.isPlaying) == false) return;
+        if ((_isHeld && _sprayFX.isPlaying) == false) { _audioSource.Stop(); return; }
 
         UpdateRemainingSprayTime(_remainingSeconds - Time.deltaTime);
         if (_remainingSeconds <= 0)      //Check for remaining spray time
