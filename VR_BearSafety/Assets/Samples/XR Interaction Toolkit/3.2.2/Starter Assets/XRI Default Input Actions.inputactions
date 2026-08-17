@@ -1327,17 +1327,6 @@
                 },
                 {
                     "name": "",
-                    "id": "1db5ec82-6085-47a1-9dc7-c35b1a074a35",
-                    "path": "<XRController>{LeftHand}/{Primary2DAxisTouch}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PressTop_Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "0d49226c-2742-414f-bda0-9304c910a10e",
                     "path": "*/{MenuButton}",
                     "interactions": "",
@@ -2466,17 +2455,6 @@
                     "processors": "ScaleVector2(x=0),StickDeadzone",
                     "groups": "",
                     "action": "Translate Manipulation",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3ce794a3-42bd-4707-aefc-748a04829da0",
-                    "path": "<XRController>{RightHand}/{Primary2DAxisTouch}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PressTop_Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
