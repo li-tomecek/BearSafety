@@ -199,10 +199,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3610408642543120183, guid: bc741d3ffaa3873419611afa20f1d191, type: 3}
-      propertyPath: _menuButtonAction
-      value: 
-      objectReference: {fileID: 4116954447336496447, guid: b6d5c44ebe3244b7692e81ae8265eb22, type: 3}
     - target: {fileID: 7784236703889835604, guid: bc741d3ffaa3873419611afa20f1d191, type: 3}
       propertyPath: m_Name
       value: '[PauseMenu]'
