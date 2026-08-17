@@ -1514,6 +1514,7 @@ GameObject:
   - component: {fileID: 4775716864809676981}
   - component: {fileID: 851789376417988067}
   - component: {fileID: 6779082822461297129}
+  - component: {fileID: 161760348568429651}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Untagged
@@ -1595,6 +1596,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 353e21e27fef118439a0fea4a9986889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BearController
+  roarSFX: {fileID: 8300000, guid: 26ed213451406d345941104f21f8df86, type: 3}
+  idleSFX: {fileID: 8300000, guid: 5cfa0cacc604582478c670f19cf25fab, type: 3}
+  minIdleSFXPlayRate: 10
+  maxIdleSFXPlayRate: 30
   maxHealth: 300
   spawnMode: 0
   playerRef: {fileID: 0}
@@ -1605,7 +1610,7 @@ MonoBehaviour:
   maxIdleTime: 5
   walkSpeed: 1
   walkDuration: 2.45
-  chaseSpeed: 5
+  chaseSpeed: 7
   chaseRange: 20
   attackRange: 2.8
   stalkSpeed: 1
@@ -1613,7 +1618,7 @@ MonoBehaviour:
   stalkingMaxDistance: 300
   stalkingTargetInterval: 4.69
   stalkingNavMeshSampleDistance: 500
-  fleeSpeed: 5
+  fleeSpeed: 6
   fleeDistance: 2000
   fleeTargetInterval: 4.22
   fleeRandomAngle: 45
@@ -1658,6 +1663,103 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SprayTarget
   _targetTransform: {fileID: 0}
   _acceptedAngleDeviation: -1
+--- !u!82 &161760348568429651
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9070514410326415597}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -6972598644924251990, guid: 23e5462a271f874488a7f8ab9e044492, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 26ed213451406d345941104f21f8df86, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.909
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &9161085794229948124
 GameObject:
   m_ObjectHideFlags: 0

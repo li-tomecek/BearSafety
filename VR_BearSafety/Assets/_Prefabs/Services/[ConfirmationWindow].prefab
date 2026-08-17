@@ -1248,7 +1248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b197e0bfdbb6b6f4d87ab2ec54fda894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ConfirmationWindow
-  clickSFX: {fileID: 0}
+  clickSFX: {fileID: 8300000, guid: 1c0414e2ca711ed44bf1981a9eba1975, type: 3}
+  _offsetFromCamera: {x: 0, y: 0, z: -1.5}
   panel: {fileID: 5347906496254789331}
   confirmButton: {fileID: 4011347318186247179}
   declineButton: {fileID: 9152128247033993172}

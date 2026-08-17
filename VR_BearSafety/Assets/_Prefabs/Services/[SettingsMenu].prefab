@@ -2000,7 +2000,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17115d5341701e74aa368c581ccb9d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SettingsMenu
-  clickSFX: {fileID: 0}
+  clickSFX: {fileID: 8300000, guid: 1c0414e2ca711ed44bf1981a9eba1975, type: 3}
+  _offsetFromCamera: {x: 0, y: 0, z: -1.5}
   settingsMenu: {fileID: 2079779494112852948}
   panels:
   - {fileID: 6332537511603984025}

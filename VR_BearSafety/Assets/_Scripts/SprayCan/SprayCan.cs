@@ -43,6 +43,9 @@ public class SprayCan : GrabInteractable
     [SerializeField] private float _tutorialRequiredSprayTime = 4f;
     private float _totalTimeHit;
 
+    private AudioSource _audioSource;
+
+
     private enum Hand
     {
         None,
@@ -79,7 +82,6 @@ public class SprayCan : GrabInteractable
         {
             Destroy(this);
         }
-        
     }
 
     protected override void Start()
@@ -96,7 +98,10 @@ public class SprayCan : GrabInteractable
 
         _defaultClipPosition = _clipGameObject.transform;
         Reset();
+
+        _audioSource = GetComponent<AudioSource>();
     }
+
     protected override void OnDestroy()
     {
         base.OnDestroy();
@@ -122,10 +127,13 @@ public class SprayCan : GrabInteractable
         UpdateRemainingSprayTime(_remainingSeconds - Time.deltaTime);
         if (_remainingSeconds <= 0)      //Check for remaining spray time
         {
+            _audioSource.Stop();
             _sprayFX.Stop();
         }
         else                            //Check for spray targets (bear)
         {
+            if (!_audioSource.isPlaying) { _audioSource.Play(); }
+
             Ray ray = new Ray(_sprayOrigin.position, _sprayOrigin.forward);
 
             Debug.DrawRay(ray.origin, ray.direction * _sprayRange, Color.red, 1f);

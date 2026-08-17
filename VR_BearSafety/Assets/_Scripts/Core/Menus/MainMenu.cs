@@ -5,11 +5,13 @@ using UnityEngine.UI;
 public class MainMenu : Menu<MainMenu>
 {
     [Header("Game Scene String")]
-    [SerializeField] private string sceneName;
+    [SerializeField] private string tutorialSceneName;
+    [SerializeField] private string practiceSceneName;
 
 
     [Header("Buttons")]
-    [SerializeField] private Button playButton;
+    [SerializeField] private Button tutorialButton;
+    [SerializeField] private Button practiceButton;
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button quitButton;
 
@@ -21,14 +23,20 @@ public class MainMenu : Menu<MainMenu>
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        playButton.onClick.AddListener(StartGame);
+        tutorialButton.onClick.AddListener(StartTutorial);
+        practiceButton.onClick.AddListener(StartPractice);
         settingsButton.onClick.AddListener(OpenSettings);
         quitButton.onClick.AddListener(QuitGame);
     }
 
-    private void StartGame()
+    private void StartTutorial()
     {
-        SceneService.Instance?.LoadScene(sceneName);
+        SceneService.Instance?.LoadScene(tutorialSceneName);
+    }
+
+    private void StartPractice()
+    {
+        SceneService.Instance?.LoadScene(practiceSceneName);
     }
 
     private void OpenSettings()

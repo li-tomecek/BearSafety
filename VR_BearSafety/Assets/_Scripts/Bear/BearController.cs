@@ -1,11 +1,18 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Comfort;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(CapsuleCollider))]
 [RequireComponent(typeof(Animator))]
 public class BearController : MonoBehaviour
 {
+    [Header("SFX")]
+    [SerializeField] private AudioClip roarSFX;
+    [SerializeField] private AudioClip idleSFX;
+    [SerializeField] private float minIdleSFXPlayRate = 10.0f;
+    [SerializeField] private float maxIdleSFXPlayRate = 30.0f;
+
     [Header("Health")]
     [SerializeField] private float maxHealth = 300.0f;
     private float _currentHealth = 0.0f;
@@ -90,6 +97,13 @@ public class BearController : MonoBehaviour
         Spawn();
     }
 
+    private void PlayBearSFX()
+    {
+        AudioManager.Instance.PlaySoundAtLocation(idleSFX, transform.position);
+
+        Invoke("PlayBearSFX", Random.Range(minIdleSFXPlayRate, maxIdleSFXPlayRate));
+    }
+
     private void Update()
     {
         if (_isPaused)
@@ -102,12 +116,19 @@ public class BearController : MonoBehaviour
 
 
         if (IsPlayerWithinChargeRange() && HasPathToPlayer())
-        {
+        { 
             if (_stateMachine.TryGetState(out BearAttackState attackState) && _stateMachine.TryGetState(out BearRetreatState retreatState))
             {
                 if (_stateMachine.CurrentState != retreatState)
                     if (_stateMachine.CurrentState != attackState)
-                        TransitionToChase();
+                    {
+                        if (_stateMachine.TryGetState(out BearChaseState chaseState))
+                            if (_stateMachine.CurrentState != chaseState)
+                            {
+                                TransitionToChase();
+                                GetComponent<AudioSource>().Play();
+                            }
+                    }
             }
         }
         else if (_stateMachine.TryGetState(out BearChaseState chaseState))
@@ -197,6 +218,7 @@ public class BearController : MonoBehaviour
 
 
         gameObject.SetActive(true);
+        PlayBearSFX();
     }
 
     public void TakeDamage(float amount)

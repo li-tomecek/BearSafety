@@ -213,7 +213,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.4
+  m_fontSize: 55.65
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.5
+  m_fontSize: 55.6
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -918,12 +918,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aac46ace7da56d4c997f2726c912bc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
-  clickSFX: {fileID: 0}
+  clickSFX: {fileID: 8300000, guid: 1c0414e2ca711ed44bf1981a9eba1975, type: 3}
+  _offsetFromCamera: {x: 0, y: 0, z: -1.5}
   pauseMenu: {fileID: 2840000347922944521}
   pauseBackground: {fileID: 1160243820599457577}
   resumeGame: {fileID: 4735406922506889702}
   openSettingsMenu: {fileID: 742678865969080726}
   returnToMainMenu: {fileID: 5063887241061517554}
+  _menuButtonAction: {fileID: 0}
 --- !u!1 &7868081432331344020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,7 +1407,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 64.05
+  m_fontSize: 55.45
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
